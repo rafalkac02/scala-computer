@@ -14,7 +14,7 @@ class MyBoard {
     // < (-)( )
     // > (+)( )
 
-    val (m, n) = size
+    val (n, m) = size
     var (i, j) = pos
 
     a match {
@@ -55,16 +55,20 @@ class MyBoard {
     // n - width
     // m - height
     val (n, m) = size
-    for (i <- 0 until n) {
-      for (j <- 0 until m) {
+
+    def printDashes() = println("-" * (4*n + 1))
+
+    for (i <- 0 until m) {
+      printDashes()
+      for (j <- 0 until n) {
         // if arrow in current position -> print box with arrow
         // else print empty box
-        if ((i, j) == position) print(s"|$arrow|")
-        else print("| |")
+        if ((i, j) == position) print(s"| $arrow ")
+        else print("|   ")
       }
-      println()
+      println("|")
     }
-    println()
+    printDashes()
   }
 
 
